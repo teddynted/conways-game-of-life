@@ -1,6 +1,7 @@
 # Conway's game of life
 
-Conway's game of life without rules.
+Conway's game of life without rules. See it in [here](https://teddynted.github.io/conways-game-of-life/)
+
 ## Installation on localhost
 
 ```bash

@@ -30,6 +30,7 @@ const Button = styled.a`
     padding: 10px;
     margin: 10px 0;
     display: inline-block;
+    cursor: pointer;
 `;
 
 const buildTwoDimensionalArray = (cols, rows) => {
