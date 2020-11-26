@@ -24,3 +24,4 @@ npm test
 * React
 * Jest/Enzyme
 * Styled Components
+* Redux

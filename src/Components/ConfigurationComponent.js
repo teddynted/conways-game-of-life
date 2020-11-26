@@ -17,7 +17,6 @@ const Button = styled.input`
     background-color: #000;
     color: #fff;
     border: none;
-    cursor: pointer;
     &:focus {
         outline:0;
         outline: none;
