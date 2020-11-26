@@ -16,7 +16,7 @@ class ConfigurationContainer extends Component {
     }
     
     handleChangeValue = e => {
-        this.setState({ [e.currentTarget.id]: e.currentTarget.value });
+        this.setState({ [e.currentTarget.name]: e.currentTarget.value });
     }
 
     handleSubmit = e => {

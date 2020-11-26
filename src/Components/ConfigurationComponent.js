@@ -46,7 +46,7 @@ const ConfigurationComponent = ({state, handleChangeValue, handleSubmit}) => {
             name="boardSize"
             onChange={handleChangeValue}
         />
-        <Button onClick={handleSubmit} type="submit" />
+        <Button id="submit" value="Save Settings" onClick={handleSubmit} type="submit" />
     </Form>;
 }
 
