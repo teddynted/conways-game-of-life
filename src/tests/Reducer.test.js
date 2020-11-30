@@ -9,7 +9,8 @@ describe('Redux reducers', () => {
                 generation: 4,
                 cellSize: 40,
                 boardSize: 400
-            }
+            },
+            isLoading: false
         })
     })  
 
