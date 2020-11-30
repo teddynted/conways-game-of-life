@@ -12,7 +12,12 @@ describe('Generation text input component', () => {
             onChange,
             value: '4',
             type: 'number',
-            placeholder: 'Generations' 
+            placeholder: 'Generations',
+            state: {
+                generation: 4,
+                cellSize: 40,
+                boardSize: 400
+            }
         }
         const wrapper = shallow(<TextFieldWrapper {...props} />);
         wrapper.find('#generation').simulate('change', '4');
@@ -30,7 +35,12 @@ describe('cellSize text input component', () => {
             onChange,
             value: '40',
             type: 'number',
-            placeholder: 'cellSize' 
+            placeholder: 'cellSize',
+            state: {
+                generation: 4,
+                cellSize: 40,
+                boardSize: 400
+            }
         }
         const wrapper = shallow(<TextFieldWrapper {...props} />);
         wrapper.find('#cellSize').simulate('change', '40');
@@ -48,7 +58,12 @@ describe('boardSize text input component', () => {
             onChange,
             value: '400',
             type: 'number',
-            placeholder: 'boardSize' 
+            placeholder: 'boardSize',
+            state: {
+                generation: 4,
+                cellSize: 40,
+                boardSize: 400
+            }
         }
         const wrapper = shallow(<TextFieldWrapper {...props} />);
         wrapper.find('#boardSize').simulate('change', '400');
