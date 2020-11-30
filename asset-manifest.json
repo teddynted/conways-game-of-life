@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/conways-game-of-life/static/css/main.93e1d718.chunk.css",
-    "main.js": "/conways-game-of-life/static/js/main.c85c9c51.chunk.js",
-    "main.js.map": "/conways-game-of-life/static/js/main.c85c9c51.chunk.js.map",
+    "main.js": "/conways-game-of-life/static/js/main.e0b58379.chunk.js",
+    "main.js.map": "/conways-game-of-life/static/js/main.e0b58379.chunk.js.map",
     "runtime-main.js": "/conways-game-of-life/static/js/runtime-main.2243a41f.js",
     "runtime-main.js.map": "/conways-game-of-life/static/js/runtime-main.2243a41f.js.map",
     "static/js/2.3e415f56.chunk.js": "/conways-game-of-life/static/js/2.3e415f56.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.2243a41f.js",
     "static/js/2.3e415f56.chunk.js",
     "static/css/main.93e1d718.chunk.css",
-    "static/js/main.c85c9c51.chunk.js"
+    "static/js/main.e0b58379.chunk.js"
   ]
 }
