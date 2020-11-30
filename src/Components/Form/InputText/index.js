@@ -29,17 +29,38 @@ const ValidationText = styled.span`
     color: #900;
     display: inline-block;
     margin: 8px 0;
+    font-size: 13px;
 `;
 
-const validation = (field, value) => {
+const validation = (field, value, state) => {
+    const {
+        boardSize,
+        cellSize
+    } = state;
     if(field === 'generation' && !validateNumber(value)) {
         return <ValidationText>Invalid generation</ValidationText>
     }
-    if(field === 'cellSize' && !validateNumber(value)) {
-        return <ValidationText>Invalid cell size</ValidationText>
+    if(field === 'cellSize') {
+        if(value > boardSize) {
+            return <ValidationText>Cells' size should be less than the size of the board.</ValidationText>
+        }
+        if(!validateNumber(value)) {
+            return <ValidationText>Invalid cell size</ValidationText>
+        }
+        if(boardSize % value !== 0) {
+            return <ValidationText>Cell size should be a multiple of a board size e.g 40 and 400</ValidationText>
+        }
     }
-    if(field === 'boardSize' && !validateNumber(value)) {
-        return <ValidationText>Invalid board size</ValidationText>
+    if(field === 'boardSize') {
+        if(value < cellSize) {
+            return <ValidationText>Board size should be greater than the cells' size.</ValidationText>
+        }
+        if(!validateNumber(value)) {
+            return <ValidationText>Invalid board size</ValidationText>
+        }
+        if(value % cellSize !== 0) {
+            return <ValidationText>Board size should be a multiple of a cell size e.g 400 and 40</ValidationText>
+        }
     }
     return ``;
 }
@@ -50,7 +71,8 @@ const FormTextInput = props => {
         id,
         placeholder,
         value,
-        onChange
+        onChange,
+        state
     } = props;
     return (
         <InputWrapper>
@@ -63,7 +85,7 @@ const FormTextInput = props => {
                 id={id} 
                 name={id}
             />
-            {validation(id, value)}
+            {validation(id, value, state)}
         </InputWrapper>
     );
 };

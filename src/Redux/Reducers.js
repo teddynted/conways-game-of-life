@@ -5,7 +5,8 @@ export const InitialState = {
         generation: 4,
         cellSize: 40,
         boardSize: 400
-    }
+    },
+    isLoading: false
 }
 
 export default function reducer (state = InitialState, action) {
@@ -14,6 +15,11 @@ export default function reducer (state = InitialState, action) {
             return {
                 ...state,
                 ...{ config: action.config }
+            }
+        case Types.SET_LOADER:
+            return {
+                ...state,
+                ...{ isLoading: action.isLoading }
             }
         default:
             return state

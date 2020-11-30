@@ -20,28 +20,35 @@ class ConfigurationContainer extends Component {
     }
 
     handleSubmit = e => {
+        this.props.setLoader(true);
         // Validate state object before sending it to redux store
-        if(
-            validateNumber(Number(this.state.generation)) && 
-            validateNumber(Number(this.state.cellSize)) > 0 && 
-            validateNumber(Number(this.state.boardSize)) > 0) {
+        const isIntegers = validateNumber(Number(this.state.generation)) > 0 && validateNumber(Number(this.state.cellSize)) > 0 && 
+        validateNumber(Number(this.state.boardSize)) > 0;
+        const isBoardSizeGreaterThanCellsSize = Number(this.state.boardSize) > Number(this.state.cellSize);
+        const isCellsSizeMultipleOfBoardSize = Number(this.state.boardSize) % Number(this.state.cellSize) === 0 || false;
+        if(isIntegers && isBoardSizeGreaterThanCellsSize && isCellsSizeMultipleOfBoardSize) {
             // Update redux store with new configuration values
             this.props.setConfig({
                 generation: Number(this.state.generation),
                 cellSize: Number(this.state.cellSize),
                 boardSize: Number(this.state.boardSize)
-            })
+            });
+            setTimeout(()=>{
+                this.props.setLoader(false);
+            }, 1000);
         }
         e.preventDefault();
     }
 
     render() {
         const {
-            config
+            config,
+            isLoading
         } = this.props;
         return <ConfigurableComponent 
                     state={this.state} 
                     config={config}
+                    isLoading={isLoading}
                     handleChangeValue={this.handleChangeValue.bind(this)}
                     handleSubmit={this.handleSubmit.bind(this)}
                 />

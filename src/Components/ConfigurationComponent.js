@@ -23,7 +23,7 @@ const Button = styled.input`
     }
 `;
 
-const ConfigurationComponent = ({state, handleChangeValue, handleSubmit}) => {
+const ConfigurationComponent = ({state, handleChangeValue, handleSubmit, isLoading}) => {
     return <Form>
         <TextInput
             labelText="Generations (1-8):"
@@ -31,6 +31,7 @@ const ConfigurationComponent = ({state, handleChangeValue, handleSubmit}) => {
             value={state.generation}
             name="generation"
             onChange={handleChangeValue}
+            state={state}
         />
         <TextInput
             labelText="Cell Size"
@@ -38,6 +39,7 @@ const ConfigurationComponent = ({state, handleChangeValue, handleSubmit}) => {
             value={state.cellSize}
             name="cellSize"
             onChange={handleChangeValue}
+            state={state}
         />
         <TextInput
             labelText="Board Size:"
@@ -45,8 +47,9 @@ const ConfigurationComponent = ({state, handleChangeValue, handleSubmit}) => {
             value={state.boardSize}
             name="boardSize"
             onChange={handleChangeValue}
+            state={state}
         />
-        <Button id="submit" value="Save Settings" onClick={handleSubmit} type="submit" />
+        <Button id="submit" value={`${ isLoading ? "Saving..." : "Save Settings" }`} onClick={handleSubmit} type="submit" />
     </Form>;
 }
 
