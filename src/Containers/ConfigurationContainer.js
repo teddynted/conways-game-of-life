@@ -24,7 +24,7 @@ class ConfigurationContainer extends Component {
         // Validate state object before sending it to redux store
         const isIntegers = validateNumber(Number(this.state.generation)) > 0 && validateNumber(Number(this.state.cellSize)) > 0 && 
         validateNumber(Number(this.state.boardSize)) > 0;
-        const isBoardSizeGreaterThanCellsSize = Number(this.state.boardSize) > Number(this.state.cellSize);
+        const isBoardSizeGreaterThanCellsSize = Number(this.state.boardSize) >= Number(this.state.cellSize);
         const isCellsSizeMultipleOfBoardSize = Number(this.state.boardSize) % Number(this.state.cellSize) === 0 || false;
         if(isIntegers && isBoardSizeGreaterThanCellsSize && isCellsSizeMultipleOfBoardSize) {
             // Update redux store with new configuration values
